@@ -289,8 +289,8 @@ AFRAME.registerComponent('shape', {
             color = new THREE.Color(0x152C50);
             material = new THREE.MeshBasicMaterial({
                 color: color,
-                emissive: color,
-                wireframe: true
+                //emissive: color,
+                //wireframe: true
             });
             material.side = THREE.DoubleSide
            // amount = theAmounts[i];
@@ -299,7 +299,7 @@ AFRAME.registerComponent('shape', {
             len1 = simpleShapes.length;
             for (j = 0; j < len1; ++j) {
                 simpleShape = simpleShapes[j];
-                shape3d = simpleShape.extrude({
+                shape3d = new THREE.ExtrudeBufferGeometry( simpleShape, {
                     amount: amount,
                     bevelEnabled: false
                 });
